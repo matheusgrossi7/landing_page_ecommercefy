@@ -1,5 +1,3 @@
-/// https://m3.material.io/foundations/adaptive-design/large-screens/overview
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
@@ -24,21 +22,60 @@ class AppResponsiveness {
     double screenWidth = MediaQuery.of(context).size.width;
     if (screenWidth < 600) {
       return WindowSize.compact;
-    } else if (screenWidth < 840) {
+    } else if (screenWidth < 900) {
       return WindowSize.medium;
     } else {
       return WindowSize.large;
     }
   }
 
-  static double getMarginSize(BuildContext context) {
-    WindowSize windowSize = getWindowSize(context);
-    return windowSize == WindowSize.large ? 32 : 16;
+  static double getBlockStructureHorizontalPaddingAmount(BuildContext context) {
+    final double marginSize = getMarginSize(context);
+    return getWindowSize(context) == WindowSize.compact
+        ? marginSize * 2
+        : marginSize * 4;
   }
 
-  static double getLandingPageBlockHeight(BuildContext context) {
-    const double minBlockHeight = 600;
+  static double getBlockStructureVerticalPaddingAmount(BuildContext context) {
+    final double marginSize = getMarginSize(context);
+    return getWindowSize(context) == WindowSize.large
+        ? marginSize
+        : marginSize * 4;
+  }
+
+  static double getMarginSize(BuildContext context) {
+    WindowSize windowSize = getWindowSize(context);
+    final double marginSize = windowSize == WindowSize.large ? 32 : 16;
+    return marginSize;
+  }
+
+  static double getPlanCardWidth(BuildContext context) {
+    const double maxCardWidth = 348;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double cardWidth = screenWidth -
+        2 * getBlockStructureHorizontalPaddingAmount(context) -
+        getMarginSize(context);
+    return cardWidth > maxCardWidth ? maxCardWidth : cardWidth;
+  }
+
+  static double getLandingPageBlockHeight(
+    BuildContext context, {
+    bool isFullScreen = false,
+  }) {
     double screenHeight = MediaQuery.of(context).size.height;
-    return screenHeight < minBlockHeight ? minBlockHeight : screenHeight;
+    const double minBlock0Height = 640;
+    const double blockHeight = 576;
+    double block0Height =
+        screenHeight < blockHeight ? minBlock0Height : screenHeight;
+    return isFullScreen ? block0Height : blockHeight;
+  }
+
+  static double getLandingPageSubBlockWidthForLargeScreen(
+      BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    final double marginSize = getMarginSize(context);
+    const double maxBlockWidth = 1080;
+    final double subBlockWidth = (screenWidth - marginSize * 2) / 2;
+    return screenWidth > maxBlockWidth ? maxBlockWidth / 2 : subBlockWidth;
   }
 }

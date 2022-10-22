@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a pt_BR locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,7 +18,7 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'pt_BR';
 
   static String m0(nProducts, strPrice) =>
       "Até ${nProducts} produtos (${strPrice} / produto cadastrado).";
@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(nStores) => "Até ${nStores} lojas.";
 
   static String m2(nProducts, strPrice) =>
-      "    Cadastre até ${nProducts} produtos e pague ${strPrice} por produto cadastrado.\n    Você pode adicionar os produtos de sua loja na Ecommercefy, para centralizar o controle das informações, automatizar procedimentos e escalar suas vendas.";
+      "Cadastre até ${nProducts} produtos e pague ${strPrice} por produto cadastrado. Você pode adicionar os produtos de sua loja na Ecommercefy, para centralizar o controle das informações, automatizar procedimentos e escalar suas vendas.";
 
   static String m3(nProducts) => "Até ${nProducts} produtos.";
 
@@ -130,7 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Exporte dados e estatísticas de produtos de forma personalizada."),
         "components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_CollaboratorsAmount":
-            MessageLookupByLibrary.simpleMessage("Colaboradores ilimitadas."),
+            MessageLookupByLibrary.simpleMessage("Colaboradores ilimitados."),
         "components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount":
             m3,
         "components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_StoresAmount":

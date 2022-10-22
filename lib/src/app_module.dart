@@ -6,7 +6,20 @@ class AppModule extends Module {
   static String get landingPageRouteName => '/';
 
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind.singleton(
+          (i) => AppStore(),
+        ),
+        Bind.singleton(
+          (i) => LandingPageStore(
+            storage: i.get<Storage>(),
+            appStore: i.get<AppStore>(),
+          ),
+        ),
+        Bind<Storage>(
+          (i) => FirebaseStorageImplementation(),
+        ),
+      ];
 
   @override
   List<ModularRoute> get routes => [

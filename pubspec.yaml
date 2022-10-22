@@ -44,6 +44,10 @@ dependencies:
   web_smooth_scroll: ^1.0.0
   universal_io: ^2.0.4
   google_fonts: ^3.0.1
+  simple_animations: ^5.0.0+2
+  youtube_player_iframe: ^3.1.0
+
+  
 
 dev_dependencies:
   flutter_test:

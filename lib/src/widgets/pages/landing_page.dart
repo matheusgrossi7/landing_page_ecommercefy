@@ -10,7 +10,13 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: const [
-          FirstBlock(),
+          LandingPageBlock0(),
+          LandingPageBlock1(),
+          LandingPageBlock2(),
+          LandingPageBlock3(),
+          LandingPageBlock4(),
+          LandingPageBlock5(),
+          LandingPageBlock6(),
         ],
       ),
     );
