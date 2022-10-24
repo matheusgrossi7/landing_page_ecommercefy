@@ -30,11 +30,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(nProducts) => "Até ${nProducts} produtos.";
 
+  static String m4(pName) => "Solicitar Plano ${pName}";
+
+  static String m5(lFirstName) => "Obrigado, ${lFirstName}!";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appContactEmail":
             MessageLookupByLibrary.simpleMessage("contato@ecommercefy.app"),
         "appName": MessageLookupByLibrary.simpleMessage("Ecommercefy"),
+        "components_CtaButton_MainActionText":
+            MessageLookupByLibrary.simpleMessage("Começar agora"),
         "components_LandingPage_Block0_LandingPage_AppBrief":
             MessageLookupByLibrary.simpleMessage(
                 "A Ecommercefy é uma plataforma que automatiza tarefas e centraliza processos relacionados à presença virtual de lojas físicas e e-commerces, possibilitando alcançar mais clientes com menos esforço."),
@@ -144,6 +150,49 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mensal"),
         "components_LandingPage_Block5_PlanToggleButton_Option2Yearly":
             MessageLookupByLibrary.simpleMessage("Anual"),
+        "components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content":
+            MessageLookupByLibrary.simpleMessage(
+                "Não foi possível solicitar o plano. Verifique a sua conexão com a Internet e tente novamente."),
+        "components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton":
+            MessageLookupByLibrary.simpleMessage("Ok"),
+        "components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Title":
+            MessageLookupByLibrary.simpleMessage("Verifique sua conexão"),
+        "components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton":
+            MessageLookupByLibrary.simpleMessage("Cancelar"),
+        "components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton":
+            MessageLookupByLibrary.simpleMessage("Solicitar"),
+        "components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle":
+            MessageLookupByLibrary.simpleMessage(
+                "Se você deseja ter acesso à plataforma, preencha os campos abaixo para entrarmos em contato."),
+        "components_LandingPage_Block5_SelectPlanDialog_FormDialog_Title": m4,
+        "components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText":
+            MessageLookupByLibrary.simpleMessage("Digite um e-mail válido."),
+        "components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText":
+            MessageLookupByLibrary.simpleMessage("Digite o seu e-mail."),
+        "components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label":
+            MessageLookupByLibrary.simpleMessage("E-mail"),
+        "components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText":
+            MessageLookupByLibrary.simpleMessage("Digite o seu nome."),
+        "components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label":
+            MessageLookupByLibrary.simpleMessage("Nome"),
+        "components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1":
+            MessageLookupByLibrary.simpleMessage("Aceitar a "),
+        "components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2":
+            MessageLookupByLibrary.simpleMessage("política de privacidade."),
+        "components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title":
+            MessageLookupByLibrary.simpleMessage("Solicitando..."),
+        "components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton":
+            MessageLookupByLibrary.simpleMessage("Cancelar"),
+        "components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton":
+            MessageLookupByLibrary.simpleMessage("Responder"),
+        "components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title":
+            m5,
+        "components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1":
+            MessageLookupByLibrary.simpleMessage(
+                "Acesso solicitado com sucesso! Em breve você receberá um e-mail com mais informações."),
+        "components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2":
+            MessageLookupByLibrary.simpleMessage(
+                "Enquanto isso, responda a um rápido questionário, para entendermos melhor como podemos te ajudar!"),
         "components_LandingPage_Block5_Title":
             MessageLookupByLibrary.simpleMessage(
                 "Selecione um plano e ganhe 1 mês grátis!"),
@@ -167,7 +216,9 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Tenho outras dúvidas. Como posso entrar em contato?"),
         "components_LandingPage_Block6_Title":
             MessageLookupByLibrary.simpleMessage("Perguntas frequentes"),
-        "components_LandingPage_CtaButton_MainActionText":
-            MessageLookupByLibrary.simpleMessage("Começar agora")
+        "pages_NothingFoundPage_MainActionButton":
+            MessageLookupByLibrary.simpleMessage("Ir para a página principal"),
+        "pages_NothingFoundPage_Message":
+            MessageLookupByLibrary.simpleMessage("Página não encontrada.")
       };
 }

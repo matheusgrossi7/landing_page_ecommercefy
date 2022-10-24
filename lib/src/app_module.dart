@@ -8,12 +8,19 @@ class AppModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.singleton(
-          (i) => AppStore(),
+          (i) => AppStore(
+            storage: i.get<Storage>(),
+          ),
         ),
         Bind.singleton(
           (i) => LandingPageStore(
             storage: i.get<Storage>(),
             appStore: i.get<AppStore>(),
+          ),
+        ),
+        Bind.singleton(
+          (i) => SelectPlanDialogStore(
+            i.get<Storage>(),
           ),
         ),
         Bind<Storage>(
@@ -25,7 +32,15 @@ class AppModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           landingPageRouteName,
-          child: (context, args) => const LandingPage(),
+          child: (context, args) => const LandingPage(
+            leadSource: 'null',
+          ),
+        ),
+        ChildRoute(
+          '$landingPageRouteName:leadSource',
+          child: (context, args) => LandingPage(
+            leadSource: args.params['leadSource'],
+          ),
         ),
         WildcardRoute(
           child: (context, args) => const NothingFoundPage(),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../generated/l10n.dart';
+import '../../../generated/l10n.dart';
 
 class CTAButton extends StatelessWidget {
   const CTAButton({
@@ -30,7 +30,7 @@ class CTAButton extends StatelessWidget {
         child: Text(
           onPressedFunction != null
               ? label!
-              : appStrings.components_LandingPage_CtaButton_MainActionText,
+              : appStrings.components_CtaButton_MainActionText,
         ),
       ),
     );

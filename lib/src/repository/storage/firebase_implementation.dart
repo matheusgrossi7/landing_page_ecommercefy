@@ -31,4 +31,27 @@ class FirebaseStorageImplementation implements Storage {
   Future<String> getLandingPageYouTubeVideoId({required Locale locale}) async {
     return 'VZbM9C6oShA';
   }
+
+  @override
+  Future<void> requestAccess(RequestAccessEvent event) async {
+    print(event.leadEmail);
+    print(event.leadName);
+    print(event.sessionId);
+  }
+
+  @override
+  Future<void> saveSelectPlanEvent(SelectPlanEvent event) async {
+    print(event.isYearlyRecurrence);
+    print(event.planType);
+    print(event.sessionId);
+    print(event.dateTime);
+  }
+
+  @override
+  Future<void> saveSession(Session session) async {
+    print(session.accessDateTime);
+    print(session.id);
+    print(session.leadSource);
+    print(session.ip);
+  }
 }

@@ -66,7 +66,7 @@ class PlansList extends StatelessWidget {
               width: horizontalPaddingAmount,
             ),
             PlanCard(
-              isStarterPlan: true,
+              planType: PlanType.starter,
               width: cardWidth,
               planTitle:
                   appStrings.components_LandingPage_Block5_PlanCard_Plan1_Title,
@@ -104,6 +104,7 @@ class PlansList extends StatelessWidget {
               width: marginSize,
             ),
             PlanCard(
+              planType: PlanType.growth,
               width: cardWidth,
               planTitle:
                   appStrings.components_LandingPage_Block5_PlanCard_Plan2_Title,
@@ -129,6 +130,7 @@ class PlansList extends StatelessWidget {
               width: marginSize,
             ),
             PlanCard(
+              planType: PlanType.scale,
               width: cardWidth,
               planTitle:
                   appStrings.components_LandingPage_Block5_PlanCard_Plan3_Title,

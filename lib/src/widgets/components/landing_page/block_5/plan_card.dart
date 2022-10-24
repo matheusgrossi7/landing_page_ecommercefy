@@ -11,15 +11,39 @@ class PlanCard extends StatelessWidget {
     required this.planListItens,
     required this.planTitle,
     required this.planSubtitle,
-    this.isStarterPlan = false,
+    required this.planType,
   }) : super(key: key);
 
-  final bool isStarterPlan;
   final double width;
   final List<PlanCardListItem> planListItens;
   final String planTitle;
   final String planSubtitle;
   final String? planPrice;
+  final PlanType planType;
+
+  void _selectPlan({
+    required BuildContext context,
+    required LandingPageStore landingPageStore,
+    required AppStore appStore,
+  }) {
+    final SelectPlanDialogStore selectPlanDialogStore =
+        Modular.get<SelectPlanDialogStore>();
+    selectPlanDialogStore.setPlanType(planType);
+    landingPageStore.saveSelectPlanEvent(
+      SelectPlanEvent(
+        id: StringUtils.generateId(),
+        sessionId: appStore.session.id,
+        dateTime: DateTime.now(),
+        planType: planType.planName,
+        isYearlyRecurrence: landingPageStore.isYearlyRecurrencePlan,
+      ),
+    );
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => const SelectPlanDialog(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +51,7 @@ class PlanCard extends StatelessWidget {
     final AppStore appStore = Modular.get<AppStore>();
     final LandingPageStore landingPageStore = Modular.get<LandingPageStore>();
     final ThemeData appTheme = Theme.of(context);
+    final bool isStarterPlan = planType == PlanType.starter;
     final double marginSize = AppResponsiveness.getMarginSize(context);
     const double spaceBetweenColumnWidgets = 16;
     return Card(
@@ -139,9 +164,10 @@ class PlanCard extends StatelessWidget {
                   CTAButton(
                     label: appStrings
                         .components_LandingPage_Block5_PlanCard_SelectButtonText,
-                    onPressedFunction: () => showDialog(
+                    onPressedFunction: () => _selectPlan(
                       context: context,
-                      builder: (context) => const SelectPlanDialog(),
+                      appStore: appStore,
+                      landingPageStore: landingPageStore,
                     ),
                   ),
                   const Spacer(),

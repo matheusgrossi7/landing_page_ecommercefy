@@ -52,6 +52,10 @@ abstract class _LandingPageStore with Store {
   final AppStore appStore;
   final Storage storage;
 
+  void saveSelectPlanEvent(SelectPlanEvent event) {
+    storage.saveSelectPlanEvent(event);
+  }
+
   @observable
   String? initialVideoId;
 

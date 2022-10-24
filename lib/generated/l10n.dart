@@ -70,11 +70,31 @@ class S {
     );
   }
 
+  /// `Página não encontrada.`
+  String get pages_NothingFoundPage_Message {
+    return Intl.message(
+      'Página não encontrada.',
+      name: 'pages_NothingFoundPage_Message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ir para a página principal`
+  String get pages_NothingFoundPage_MainActionButton {
+    return Intl.message(
+      'Ir para a página principal',
+      name: 'pages_NothingFoundPage_MainActionButton',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Começar agora`
-  String get components_LandingPage_CtaButton_MainActionText {
+  String get components_CtaButton_MainActionText {
     return Intl.message(
       'Começar agora',
-      name: 'components_LandingPage_CtaButton_MainActionText',
+      name: 'components_CtaButton_MainActionText',
       desc: '',
       args: [],
     );
@@ -543,6 +563,243 @@ class S {
     return Intl.message(
       'Ok',
       name: 'components_LandingPage_Block5_KnowMoreDialog_PopActionText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nome`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label {
+    return Intl.message(
+      'Nome',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Digite o seu nome.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText {
+    return Intl.message(
+      'Digite o seu nome.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `E-mail`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label {
+    return Intl.message(
+      'E-mail',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Digite o seu e-mail.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText {
+    return Intl.message(
+      'Digite o seu e-mail.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Digite um e-mail válido.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText {
+    return Intl.message(
+      'Digite um e-mail válido.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Aceitar a `
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1 {
+    return Intl.message(
+      'Aceitar a ',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `política de privacidade.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2 {
+    return Intl.message(
+      'política de privacidade.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verifique sua conexão`
+  String get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Title {
+    return Intl.message(
+      'Verifique sua conexão',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Não foi possível solicitar o plano. Verifique a sua conexão com a Internet e tente novamente.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content {
+    return Intl.message(
+      'Não foi possível solicitar o plano. Verifique a sua conexão com a Internet e tente novamente.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton {
+    return Intl.message(
+      'Ok',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Solicitar Plano {pName}`
+  String components_LandingPage_Block5_SelectPlanDialog_FormDialog_Title(
+      Object pName) {
+    return Intl.message(
+      'Solicitar Plano $pName',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_FormDialog_Title',
+      desc: '',
+      args: [pName],
+    );
+  }
+
+  /// `Se você deseja ter acesso à plataforma, preencha os campos abaixo para entrarmos em contato.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle {
+    return Intl.message(
+      'Se você deseja ter acesso à plataforma, preencha os campos abaixo para entrarmos em contato.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelar`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton {
+    return Intl.message(
+      'Cancelar',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Solicitar`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton {
+    return Intl.message(
+      'Solicitar',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Solicitando...`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title {
+    return Intl.message(
+      'Solicitando...',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Obrigado, {lFirstName}!`
+  String components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title(
+      Object lFirstName) {
+    return Intl.message(
+      'Obrigado, $lFirstName!',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title',
+      desc: '',
+      args: [lFirstName],
+    );
+  }
+
+  /// `Acesso solicitado com sucesso! Em breve você receberá um e-mail com mais informações.`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1 {
+    return Intl.message(
+      'Acesso solicitado com sucesso! Em breve você receberá um e-mail com mais informações.',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enquanto isso, responda a um rápido questionário, para entendermos melhor como podemos te ajudar!`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2 {
+    return Intl.message(
+      'Enquanto isso, responda a um rápido questionário, para entendermos melhor como podemos te ajudar!',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelar`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton {
+    return Intl.message(
+      'Cancelar',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Responder`
+  String
+      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton {
+    return Intl.message(
+      'Responder',
+      name:
+          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton',
       desc: '',
       args: [],
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page_ecommercefy/src/src_exports.dart';
 
 abstract class Storage {
   Future<double> getStarterPlanPrice({
@@ -19,4 +20,10 @@ abstract class Storage {
   Future<String> getLandingPageYouTubeVideoId({
     required Locale locale,
   });
+
+  Future<void> saveSession(Session session);
+
+  Future<void> saveSelectPlanEvent(SelectPlanEvent event);
+
+  Future<void> requestAccess(RequestAccessEvent event);
 }
