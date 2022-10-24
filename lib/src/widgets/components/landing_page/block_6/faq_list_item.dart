@@ -16,6 +16,7 @@ class FaqListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final double marginSize = AppResponsiveness.getMarginSize(context);
     return Card(
+      margin: EdgeInsets.zero,
       child: Padding(
         padding: EdgeInsets.all(marginSize),
         child: Column(

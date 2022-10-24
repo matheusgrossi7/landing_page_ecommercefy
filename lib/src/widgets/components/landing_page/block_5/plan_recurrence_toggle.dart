@@ -18,7 +18,9 @@ class PlanRecurrenceToggle extends StatelessWidget {
         borderRadius: BorderRadius.circular(50),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(4),
+        padding: AppResponsiveness.isRunningOnMobileWeb
+            ? const EdgeInsets.symmetric(horizontal: 4)
+            : const EdgeInsets.all(4),
         child: Observer(
           builder: (context) {
             return Row(

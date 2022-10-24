@@ -49,8 +49,12 @@ abstract class _SelectPlanDialogStore with Store {
   Future<void> requestForm(RequestAccessEvent event) async {
     if (_validateForm()) {
       dialogState = SelectPlanDialogState.loading;
-      await storage.requestAccess(event);
-      dialogState = SelectPlanDialogState.planRequested;
+      bool wasRequested = await storage.requestAccess(event);
+      if (wasRequested) {
+        dialogState = SelectPlanDialogState.planRequested;
+      } else {
+        dialogState = SelectPlanDialogState.error;
+      }
     }
   }
 

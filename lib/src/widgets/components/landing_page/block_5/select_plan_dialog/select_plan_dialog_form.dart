@@ -22,7 +22,6 @@ class SelectPlanDialogForm extends StatelessWidget {
         return Column(
           children: [
             TextField(
-              autofocus: true,
               textCapitalization: TextCapitalization.words,
               keyboardType: TextInputType.name,
               textInputAction: TextInputAction.next,

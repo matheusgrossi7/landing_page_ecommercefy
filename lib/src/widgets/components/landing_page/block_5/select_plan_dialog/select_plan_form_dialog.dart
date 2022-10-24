@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -48,15 +49,18 @@ class SelectPlanFormDialog extends StatelessWidget {
         CTAButton(
           label: appStrings
               .components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton,
-          onPressedFunction: () => dialogStore.requestForm(
-            RequestAccessEvent(
-              id: StringUtils.generateId(),
-              sessionId: appStore.session.id,
-              dateTime: DateTime.now(),
-              leadName: dialogStore.leadName,
-              leadEmail: dialogStore.leadEmail,
-            ),
-          ),
+          onPressedFunction: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+            dialogStore.requestForm(
+              RequestAccessEvent(
+                id: StringUtils.generateId(),
+                sessionId: appStore.session.id,
+                timestamp: Timestamp.now(),
+                leadName: dialogStore.leadName,
+                leadEmail: dialogStore.leadEmail,
+              ),
+            );
+          },
         ),
       ],
     );

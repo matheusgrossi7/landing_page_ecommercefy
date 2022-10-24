@@ -7,7 +7,7 @@ class SelectPlanEvent extends Event {
   SelectPlanEvent({
     required super.id,
     required super.sessionId,
-    required super.dateTime,
+    required super.timestamp,
     required this.planType,
     required this.isYearlyRecurrence,
   });

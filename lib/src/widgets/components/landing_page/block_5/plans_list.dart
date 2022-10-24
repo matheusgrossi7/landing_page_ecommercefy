@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -55,109 +56,120 @@ class PlansList extends StatelessWidget {
       ),
       ...commonsListItens,
     ];
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Observer(builder: (context) {
-        return Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: horizontalPaddingAmount,
-            ),
-            PlanCard(
-              planType: PlanType.starter,
-              width: cardWidth,
-              planTitle:
-                  appStrings.components_LandingPage_Block5_PlanCard_Plan1_Title,
-              planPrice: landingPageStore.starterPlanPrice,
-              planSubtitle: landingPageStore.isYearlyRecurrencePlan
-                  ? appStrings
-                      .components_LandingPage_Block5_PlanCard_Plan1_YearlySubtitle
-                  : appStrings
-                      .components_LandingPage_Block5_PlanCard_Plan1_MonthlySubtitle,
-              planListItens: [
-                PlanCardListItem(
-                  label: appStrings
-                      .components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount(
-                          landingPageStore.starterPlanMaxProductsAmount,
-                          landingPageStore.starterPlanPrice ?? ''),
-                ),
-                PlanCardListItem(
-                  label: appStrings
-                      .components_LandingPage_Block5_Plan1ListItem_StoresAmount(
-                    landingPageStore.starterPlanMaxStoresAmount,
+    return ScrollConfiguration(
+      behavior: MyCustomScrollBehavior(),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Observer(builder: (context) {
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: horizontalPaddingAmount,
+              ),
+              PlanCard(
+                planType: PlanType.starter,
+                width: cardWidth,
+                planTitle: appStrings
+                    .components_LandingPage_Block5_PlanCard_Plan1_Title,
+                planPrice: landingPageStore.starterPlanPrice,
+                planSubtitle: landingPageStore.isYearlyRecurrencePlan
+                    ? appStrings
+                        .components_LandingPage_Block5_PlanCard_Plan1_YearlySubtitle
+                    : appStrings
+                        .components_LandingPage_Block5_PlanCard_Plan1_MonthlySubtitle,
+                planListItens: [
+                  PlanCardListItem(
+                    label: appStrings
+                        .components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount(
+                            landingPageStore.starterPlanMaxProductsAmount,
+                            landingPageStore.starterPlanPrice ?? ''),
                   ),
-                  knowMoreText: appStrings
-                      .components_LandingPage_Block5_PlanListItem_StoresAmount_MoreInfo,
-                ),
-                PlanCardListItem(
-                  label: appStrings
-                      .components_LandingPage_Block5_Plan1ListItem_CollaboratorsAmount,
-                  knowMoreText: appStrings
-                      .components_LandingPage_Block5_PlanListItem_CollaboratorsAmount_MoreInfo,
-                ),
-                ...commonsListItens,
-              ],
-            ),
-            SizedBox(
-              width: marginSize,
-            ),
-            PlanCard(
-              planType: PlanType.growth,
-              width: cardWidth,
-              planTitle:
-                  appStrings.components_LandingPage_Block5_PlanCard_Plan2_Title,
-              planSubtitle: landingPageStore.isYearlyRecurrencePlan
-                  ? appStrings
-                      .components_LandingPage_Block5_PlanCard_Plan2And3_YearlySubtitle
-                  : appStrings
-                      .components_LandingPage_Block5_PlanCard_Plan2And3_MonthlySubtitle,
-              planPrice: landingPageStore.growthPlanPrice,
-              planListItens: [
-                PlanCardListItem(
-                  label: appStrings
-                      .components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount(
-                    landingPageStore.growthPlanMaxProductsAmount,
+                  PlanCardListItem(
+                    label: appStrings
+                        .components_LandingPage_Block5_Plan1ListItem_StoresAmount(
+                      landingPageStore.starterPlanMaxStoresAmount,
+                    ),
+                    knowMoreText: appStrings
+                        .components_LandingPage_Block5_PlanListItem_StoresAmount_MoreInfo,
                   ),
-                  knowMoreText: appStrings
-                      .components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo,
-                ),
-                ...plan1And2CardListItens,
-              ],
-            ),
-            SizedBox(
-              width: marginSize,
-            ),
-            PlanCard(
-              planType: PlanType.scale,
-              width: cardWidth,
-              planTitle:
-                  appStrings.components_LandingPage_Block5_PlanCard_Plan3_Title,
-              planSubtitle: landingPageStore.isYearlyRecurrencePlan
-                  ? appStrings
-                      .components_LandingPage_Block5_PlanCard_Plan2And3_YearlySubtitle
-                  : appStrings
-                      .components_LandingPage_Block5_PlanCard_Plan2And3_MonthlySubtitle,
-              planPrice: landingPageStore.scalePlanPrice,
-              planListItens: [
-                PlanCardListItem(
-                  label: appStrings
-                      .components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount(
-                    landingPageStore.scalePlanMaxProductsAmount,
+                  PlanCardListItem(
+                    label: appStrings
+                        .components_LandingPage_Block5_Plan1ListItem_CollaboratorsAmount,
+                    knowMoreText: appStrings
+                        .components_LandingPage_Block5_PlanListItem_CollaboratorsAmount_MoreInfo,
                   ),
-                  knowMoreText: appStrings
-                      .components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo,
-                ),
-                ...plan1And2CardListItens,
-              ],
-            ),
-            SizedBox(
-              width: horizontalPaddingAmount,
-            ),
-          ],
-        );
-      }),
+                  ...commonsListItens,
+                ],
+              ),
+              SizedBox(
+                width: marginSize,
+              ),
+              PlanCard(
+                planType: PlanType.growth,
+                width: cardWidth,
+                planTitle: appStrings
+                    .components_LandingPage_Block5_PlanCard_Plan2_Title,
+                planSubtitle: landingPageStore.isYearlyRecurrencePlan
+                    ? appStrings
+                        .components_LandingPage_Block5_PlanCard_Plan2And3_YearlySubtitle
+                    : appStrings
+                        .components_LandingPage_Block5_PlanCard_Plan2And3_MonthlySubtitle,
+                planPrice: landingPageStore.growthPlanPrice,
+                planListItens: [
+                  PlanCardListItem(
+                    label: appStrings
+                        .components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount(
+                      landingPageStore.growthPlanMaxProductsAmount,
+                    ),
+                    knowMoreText: appStrings
+                        .components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo,
+                  ),
+                  ...plan1And2CardListItens,
+                ],
+              ),
+              SizedBox(
+                width: marginSize,
+              ),
+              PlanCard(
+                planType: PlanType.scale,
+                width: cardWidth,
+                planTitle: appStrings
+                    .components_LandingPage_Block5_PlanCard_Plan3_Title,
+                planSubtitle: landingPageStore.isYearlyRecurrencePlan
+                    ? appStrings
+                        .components_LandingPage_Block5_PlanCard_Plan2And3_YearlySubtitle
+                    : appStrings
+                        .components_LandingPage_Block5_PlanCard_Plan2And3_MonthlySubtitle,
+                planPrice: landingPageStore.scalePlanPrice,
+                planListItens: [
+                  PlanCardListItem(
+                    label: appStrings
+                        .components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount(
+                      landingPageStore.scalePlanMaxProductsAmount,
+                    ),
+                    knowMoreText: appStrings
+                        .components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo,
+                  ),
+                  ...plan1And2CardListItens,
+                ],
+              ),
+              SizedBox(
+                width: horizontalPaddingAmount,
+              ),
+            ],
+          );
+        }),
+      ),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }

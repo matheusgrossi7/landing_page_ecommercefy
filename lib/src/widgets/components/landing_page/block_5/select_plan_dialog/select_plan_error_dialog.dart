@@ -18,9 +18,12 @@ class SelectPlanErrorDialog extends StatelessWidget {
         appStrings
             .components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Title,
       ),
-      content: Text(
-        appStrings
-            .components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content,
+      content: SizedBox(
+        width: AppResponsiveness.getPlanCardWidth(context),
+        child: Text(
+          appStrings
+              .components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content,
+        ),
       ),
       actions: [
         TextButton(

@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../src_exports.dart';
 
 class FirebaseStorageImplementation implements Storage {
@@ -33,25 +35,64 @@ class FirebaseStorageImplementation implements Storage {
   }
 
   @override
-  Future<void> requestAccess(RequestAccessEvent event) async {
-    print(event.leadEmail);
-    print(event.leadName);
-    print(event.sessionId);
+  Future<bool> requestAccess(RequestAccessEvent event) async {
+    try {
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+      await firestore.collection('requests').add(
+        {
+          "id": event.id,
+          "sessionId": event.sessionId,
+          "timestamp": event.timestamp,
+          "leadName": event.leadName,
+          "leadEmail": event.leadEmail,
+        },
+      );
+      return true;
+    } catch (_) {
+      return false;
+    }
   }
 
   @override
   Future<void> saveSelectPlanEvent(SelectPlanEvent event) async {
-    print(event.isYearlyRecurrence);
-    print(event.planType);
-    print(event.sessionId);
-    print(event.dateTime);
+    bool wasCompleted = false;
+    while (!wasCompleted) {
+      try {
+        FirebaseFirestore firestore = FirebaseFirestore.instance;
+        await firestore.collection('events').add(
+          {
+            "id": event.id,
+            "sessionId": event.sessionId,
+            "timestamp": event.timestamp,
+            "planType": event.planType,
+            "isYearlyRecurrence": event.isYearlyRecurrence,
+          },
+        );
+        wasCompleted = true;
+      } catch (_) {
+        await Future.delayed(const Duration(milliseconds: 300));
+      }
+    }
   }
 
   @override
   Future<void> saveSession(Session session) async {
-    print(session.accessDateTime);
-    print(session.id);
-    print(session.leadSource);
-    print(session.ip);
+    bool wasCompleted = false;
+    while (!wasCompleted) {
+      try {
+        FirebaseFirestore firestore = FirebaseFirestore.instance;
+        await firestore.collection('sessions').add(
+          {
+            "id": session.id,
+            "ip": session.ip,
+            "leadSource": session.leadSource,
+            "accessTimestamp": session.accessTimestamp,
+          },
+        );
+        wasCompleted = true;
+      } catch (_) {
+        await Future.delayed(const Duration(milliseconds: 300));
+      }
+    }
   }
 }

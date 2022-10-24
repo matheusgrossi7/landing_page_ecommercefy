@@ -9,6 +9,11 @@ class AppResponsiveness {
 
   static bool get isRunningOnWeb => kIsWeb;
 
+  static bool get isRunningOnMobileWeb =>
+      kIsWeb &&
+      (defaultTargetPlatform == TargetPlatform.iOS ||
+          defaultTargetPlatform == TargetPlatform.android);
+
   static bool get isRunningOnSmartphoneOrTablet =>
       !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 

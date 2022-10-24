@@ -17,19 +17,22 @@ class LandingPage extends StatelessWidget {
     AppStore appStore = Modular.get<AppStore>();
     LandingPageStore landingPageStore = Modular.get<LandingPageStore>();
     appStore.storeSession(leadSource);
-    const List<Widget> blocks = [
-      LandingPageBlock0(),
-      LandingPageBlock1(),
-      LandingPageBlock2(),
-      LandingPageBlock3(),
-      LandingPageBlock4(),
-      LandingPageBlock5(),
-      LandingPageBlock6(),
-    ];
+    Widget blocks = Column(
+      children: const [
+        LandingPageBlock0(),
+        LandingPageBlock1(),
+        LandingPageBlock2(),
+        LandingPageBlock3(),
+        LandingPageBlock4(),
+        LandingPageBlock5(),
+        LandingPageBlock6(),
+      ],
+    );
     return Scaffold(
-      body: AppResponsiveness.isRunningOnSmartphoneOrTablet
-          ? ListView(
-              children: blocks,
+      body: AppResponsiveness.isRunningOnMobileWeb
+          ? SingleChildScrollView(
+              controller: landingPageStore.scrollController,
+              child: blocks,
             )
           : WebSmoothScroll(
               animationDuration: 300,
@@ -39,9 +42,7 @@ class LandingPage extends StatelessWidget {
               child: SingleChildScrollView(
                 controller: landingPageStore.scrollController,
                 physics: const NeverScrollableScrollPhysics(),
-                child: Column(
-                  children: blocks,
-                ),
+                child: blocks,
               ),
             ),
     );

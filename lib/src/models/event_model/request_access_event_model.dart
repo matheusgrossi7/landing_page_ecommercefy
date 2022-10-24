@@ -7,7 +7,7 @@ class RequestAccessEvent extends Event {
   RequestAccessEvent({
     required super.id,
     required super.sessionId,
-    required super.dateTime,
+    required super.timestamp,
     required this.leadName,
     required this.leadEmail,
   });

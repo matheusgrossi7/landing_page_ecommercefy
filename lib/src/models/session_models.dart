@@ -1,12 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Session {
   final String id;
-  final DateTime accessDateTime;
+  final Timestamp accessTimestamp;
   String ip;
   String leadSource;
 
   Session({
     required this.id,
-    required this.accessDateTime,
+    required this.accessTimestamp,
     required this.leadSource,
     required this.ip,
   });

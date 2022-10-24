@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -33,7 +34,7 @@ class PlanCard extends StatelessWidget {
       SelectPlanEvent(
         id: StringUtils.generateId(),
         sessionId: appStore.session.id,
-        dateTime: DateTime.now(),
+        timestamp: Timestamp.now(),
         planType: planType.planName,
         isYearlyRecurrence: landingPageStore.isYearlyRecurrencePlan,
       ),

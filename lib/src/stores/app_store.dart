@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dart_ipify/dart_ipify.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -16,7 +17,7 @@ abstract class _AppStore with Store {
   }) {
     session = Session(
       id: StringUtils.generateId(),
-      accessDateTime: DateTime.now(),
+      accessTimestamp: Timestamp.now(),
       leadSource: "",
       ip: "",
     );

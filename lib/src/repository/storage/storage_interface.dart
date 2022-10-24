@@ -25,5 +25,5 @@ abstract class Storage {
 
   Future<void> saveSelectPlanEvent(SelectPlanEvent event);
 
-  Future<void> requestAccess(RequestAccessEvent event);
+  Future<bool> requestAccess(RequestAccessEvent event);
 }
