@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:simple_animations/simple_animations.dart';
 
-import '../../../../../generated/l10n.dart';
+import '../../../../src_exports.dart';
 
 class ScrollDownButton extends StatefulWidget {
   const ScrollDownButton({Key? key}) : super(key: key);
@@ -34,6 +35,7 @@ class _ScrollDownButtonState extends State<ScrollDownButton> {
   Widget build(BuildContext context) {
     final S appStrings = S.of(context);
     final ThemeData appTheme = Theme.of(context);
+    LandingPageStore landingPageStore = Modular.get<LandingPageStore>();
     return CustomAnimationBuilder<double>(
       control: control,
       onCompleted: () async => await _toggleDirection(),
@@ -51,7 +53,14 @@ class _ScrollDownButtonState extends State<ScrollDownButton> {
         tooltip:
             appStrings.components_LandingPage_Block0_ScrollDownButton_Tooltip,
         onPressed: () {
-          // TODO: implement function
+          landingPageStore.scrollController.animateTo(
+            AppResponsiveness.getLandingPageBlockHeight(
+              context,
+              isFullScreen: true,
+            ),
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
         },
         icon: Icon(
           Icons.keyboard_double_arrow_down_rounded,

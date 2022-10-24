@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../generated/l10n.dart';
+import '../../src_exports.dart';
 
 class CTAButton extends StatelessWidget {
   const CTAButton({
@@ -14,6 +15,7 @@ class CTAButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LandingPageStore landingPageStore = Modular.get<LandingPageStore>();
     final S appStrings = S.of(context);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -23,7 +25,11 @@ class CTAButton extends StatelessWidget {
       onPressed: onPressedFunction != null
           ? () => onPressedFunction!()
           : () {
-              // TODO: implement cta scroll function
+              Scrollable.ensureVisible(
+                landingPageStore.block5GlobalKey.currentContext!,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
             },
       child: Padding(
         padding: const EdgeInsets.all(4),

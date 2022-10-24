@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../src_exports.dart';
@@ -51,6 +52,8 @@ abstract class _LandingPageStore with Store {
 
   final AppStore appStore;
   final Storage storage;
+  final ScrollController scrollController = ScrollController();
+  final GlobalKey block5GlobalKey = GlobalKey();
 
   void saveSelectPlanEvent(SelectPlanEvent event) {
     storage.saveSelectPlanEvent(event);

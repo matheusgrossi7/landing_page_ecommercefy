@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 import '../../../../../src_exports.dart';
 
@@ -52,7 +54,7 @@ class SelectPlanRequestedDialog extends StatelessWidget {
               .components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton,
           onPressedFunction: () {
             Navigator.pop(context);
-            //TODO: implement
+            html.window.open(AppLinks.googleForms, "_self");
           },
         ),
       ],

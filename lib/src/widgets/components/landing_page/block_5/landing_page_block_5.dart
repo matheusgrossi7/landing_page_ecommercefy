@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../src_exports.dart';
 
@@ -9,6 +10,7 @@ class LandingPageBlock5 extends StatelessWidget {
   Widget build(BuildContext context) {
     final S appStrings = S.of(context);
     final ThemeData appTheme = Theme.of(context);
+    LandingPageStore landingPageStore = Modular.get<LandingPageStore>();
     final WindowSize windowSize = AppResponsiveness.getWindowSize(context);
     final double marginSize = AppResponsiveness.getMarginSize(context);
     final double blockStructureHorizontalPaddingAmount =
@@ -18,6 +20,7 @@ class LandingPageBlock5 extends StatelessWidget {
     final double dMarginSize =
         windowSize == WindowSize.large ? marginSize : marginSize * 2;
     return Container(
+      key: landingPageStore.block5GlobalKey,
       width: MediaQuery.of(context).size.width,
       color: appTheme.colorScheme.primary,
       child: Padding(
