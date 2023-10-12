@@ -18,6 +18,7 @@ abstract class _AppStore with Store {
     session = Session(
       id: StringUtils.generateId(),
       accessTimestamp: Timestamp.now(),
+      isRunningOnMobileWeb: AppResponsiveness.isRunningOnMobileWeb,
       leadSource: "",
       ip: "",
     );

@@ -87,6 +87,7 @@ class FirebaseStorageImplementation implements Storage {
             "ip": session.ip,
             "leadSource": session.leadSource,
             "accessTimestamp": session.accessTimestamp,
+            "isRunningOnMobileWeb": session.isRunningOnMobileWeb,
           },
         );
         wasCompleted = true;

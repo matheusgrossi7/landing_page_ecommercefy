@@ -10,7 +10,7 @@ import 'intl/messages_all.dart';
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
-// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
+// ignore_for_file: avoid_redundant_argument_values
 
 class S {
   S();
@@ -18,31 +18,28 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(_current != null, 'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
-  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
+  static const AppLocalizationDelegate delegate =
+    AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name);
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       final instance = S();
       S._current = instance;
-
+ 
       return instance;
     });
-  }
+  } 
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(instance != null, 'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -331,25 +328,20 @@ class S {
   }
 
   /// `Pague apenas o que usar`
-  String
-      get components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_Title {
+  String get components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_Title {
     return Intl.message(
       'Pague apenas o que usar',
-      name:
-          'components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_Title',
+      name: 'components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_Title',
       desc: '',
       args: [],
     );
   }
 
   /// `    Cadastre até {nProducts} produtos e pague {strPrice} por produto cadastrado.\n    Você pode adicionar os produtos de sua loja na Ecommercefy, para centralizar o controle das informações, automatizar procedimentos e escalar suas vendas.`
-  String
-      components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_BodyText(
-          Object nProducts, Object strPrice) {
+  String components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_BodyText(Object nProducts, Object strPrice) {
     return Intl.message(
       '    Cadastre até $nProducts produtos e pague $strPrice por produto cadastrado.\n    Você pode adicionar os produtos de sua loja na Ecommercefy, para centralizar o controle das informações, automatizar procedimentos e escalar suas vendas.',
-      name:
-          'components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_BodyText',
+      name: 'components_LandingPage_Block5_PlanCard_Plan1_PriceComplement_KnowMore_BodyText',
       desc: '',
       args: [nProducts, strPrice],
     );
@@ -396,8 +388,7 @@ class S {
   }
 
   /// `Até {nProducts} produtos ({strPrice} / produto cadastrado).`
-  String components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount(
-      Object nProducts, Object strPrice) {
+  String components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount(Object nProducts, Object strPrice) {
     return Intl.message(
       'Até $nProducts produtos ($strPrice / produto cadastrado).',
       name: 'components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount',
@@ -407,8 +398,7 @@ class S {
   }
 
   /// `Até {nStores} lojas.`
-  String components_LandingPage_Block5_Plan1ListItem_StoresAmount(
-      Object nStores) {
+  String components_LandingPage_Block5_Plan1ListItem_StoresAmount(Object nStores) {
     return Intl.message(
       'Até $nStores lojas.',
       name: 'components_LandingPage_Block5_Plan1ListItem_StoresAmount',
@@ -428,37 +418,30 @@ class S {
   }
 
   /// `Até {nProducts} produtos.`
-  String
-      components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount(
-          Object nProducts) {
+  String components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount(Object nProducts) {
     return Intl.message(
       'Até $nProducts produtos.',
-      name:
-          'components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount',
+      name: 'components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_MaxProductsAmount',
       desc: '',
       args: [nProducts],
     );
   }
 
   /// `Lojas ilimitadas.`
-  String
-      get components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_StoresAmount {
+  String get components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_StoresAmount {
     return Intl.message(
       'Lojas ilimitadas.',
-      name:
-          'components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_StoresAmount',
+      name: 'components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_StoresAmount',
       desc: '',
       args: [],
     );
   }
 
   /// `Colaboradores ilimitadas.`
-  String
-      get components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_CollaboratorsAmount {
+  String get components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_CollaboratorsAmount {
     return Intl.message(
       'Colaboradores ilimitadas.',
-      name:
-          'components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_CollaboratorsAmount',
+      name: 'components_LandingPage_Block5_PlanListItem_Plan2And3CommonItem_CollaboratorsAmount',
       desc: '',
       args: [],
     );
@@ -525,12 +508,10 @@ class S {
   }
 
   /// `Adicione os produtos de sua loja na Ecommercefy, para centralizar o controle das informações, automatizar procedimentos e escalar suas vendas.`
-  String
-      get components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo {
+  String get components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo {
     return Intl.message(
       'Adicione os produtos de sua loja na Ecommercefy, para centralizar o controle das informações, automatizar procedimentos e escalar suas vendas.',
-      name:
-          'components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo',
+      name: 'components_LandingPage_Block5_Plan1ListItem_MaxProductsAmount_MoreInfo',
       desc: '',
       args: [],
     );
@@ -547,12 +528,10 @@ class S {
   }
 
   /// `Caso você precise da ajuda de uma pessoa para administrar a sua loja, você pode adicioná-la como colaboradora, sem custo adicional. Delegue funções e economize tempo.`
-  String
-      get components_LandingPage_Block5_PlanListItem_CollaboratorsAmount_MoreInfo {
+  String get components_LandingPage_Block5_PlanListItem_CollaboratorsAmount_MoreInfo {
     return Intl.message(
       'Caso você precise da ajuda de uma pessoa para administrar a sua loja, você pode adicioná-la como colaboradora, sem custo adicional. Delegue funções e economize tempo.',
-      name:
-          'components_LandingPage_Block5_PlanListItem_CollaboratorsAmount_MoreInfo',
+      name: 'components_LandingPage_Block5_PlanListItem_CollaboratorsAmount_MoreInfo',
       desc: '',
       args: [],
     );
@@ -569,84 +548,70 @@ class S {
   }
 
   /// `Nome`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label {
     return Intl.message(
       'Nome',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_Label',
       desc: '',
       args: [],
     );
   }
 
   /// `Digite o seu nome.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText {
     return Intl.message(
       'Digite o seu nome.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_NameTextField_HelperText',
       desc: '',
       args: [],
     );
   }
 
   /// `E-mail`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label {
     return Intl.message(
       'E-mail',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_Label',
       desc: '',
       args: [],
     );
   }
 
   /// `Digite o seu e-mail.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText {
     return Intl.message(
       'Digite o seu e-mail.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_HelperText',
       desc: '',
       args: [],
     );
   }
 
   /// `Digite um e-mail válido.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText {
     return Intl.message(
       'Digite um e-mail válido.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_EmailTextField_ErrorText',
       desc: '',
       args: [],
     );
   }
 
   /// `Aceitar a `
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1 {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1 {
     return Intl.message(
       'Aceitar a ',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part1',
       desc: '',
       args: [],
     );
   }
 
   /// `política de privacidade.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2 {
+  String get components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2 {
     return Intl.message(
       'política de privacidade.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_Form_PrivacyPoliceCheck_Part2',
       desc: '',
       args: [],
     );
@@ -663,32 +628,27 @@ class S {
   }
 
   /// `Não foi possível solicitar o plano. Verifique a sua conexão com a Internet e tente novamente.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content {
+  String get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content {
     return Intl.message(
       'Não foi possível solicitar o plano. Verifique a sua conexão com a Internet e tente novamente.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_Content',
       desc: '',
       args: [],
     );
   }
 
   /// `Ok`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton {
+  String get components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton {
     return Intl.message(
       'Ok',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_ErrorDialog_MainActinoButton',
       desc: '',
       args: [],
     );
   }
 
   /// `Solicitar Plano {pName}`
-  String components_LandingPage_Block5_SelectPlanDialog_FormDialog_Title(
-      Object pName) {
+  String components_LandingPage_Block5_SelectPlanDialog_FormDialog_Title(Object pName) {
     return Intl.message(
       'Solicitar Plano $pName',
       name: 'components_LandingPage_Block5_SelectPlanDialog_FormDialog_Title',
@@ -698,108 +658,90 @@ class S {
   }
 
   /// `Se você deseja ter acesso à plataforma, preencha os campos abaixo para entrarmos em contato.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle {
+  String get components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle {
     return Intl.message(
       'Se você deseja ter acesso à plataforma, preencha os campos abaixo para entrarmos em contato.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_FormDialog_Subtitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Cancelar`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton {
+  String get components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton {
     return Intl.message(
       'Cancelar',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_FormDialog_DismissButton',
       desc: '',
       args: [],
     );
   }
 
   /// `Solicitar`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton {
+  String get components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton {
     return Intl.message(
       'Solicitar',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_FormDialog_MainActionButton',
       desc: '',
       args: [],
     );
   }
 
   /// `Solicitando...`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title {
+  String get components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title {
     return Intl.message(
       'Solicitando...',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_LoadingDialog_Title',
       desc: '',
       args: [],
     );
   }
 
   /// `Obrigado, {lFirstName}!`
-  String components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title(
-      Object lFirstName) {
+  String components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title(Object lFirstName) {
     return Intl.message(
       'Obrigado, $lFirstName!',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_Title',
       desc: '',
       args: [lFirstName],
     );
   }
 
   /// `Acesso solicitado com sucesso! Em breve você receberá um e-mail com mais informações.`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1 {
+  String get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1 {
     return Intl.message(
       'Acesso solicitado com sucesso! Em breve você receberá um e-mail com mais informações.',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content1',
       desc: '',
       args: [],
     );
   }
 
   /// `Enquanto isso, responda a um rápido questionário, para entendermos melhor como podemos te ajudar!`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2 {
+  String get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2 {
     return Intl.message(
       'Enquanto isso, responda a um rápido questionário, para entendermos melhor como podemos te ajudar!',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_content2',
       desc: '',
       args: [],
     );
   }
 
   /// `Cancelar`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton {
+  String get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton {
     return Intl.message(
       'Cancelar',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_DismissButton',
       desc: '',
       args: [],
     );
   }
 
   /// `Responder`
-  String
-      get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton {
+  String get components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton {
     return Intl.message(
       'Responder',
-      name:
-          'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton',
+      name: 'components_LandingPage_Block5_SelectPlanDialog_RequestedDialog_MainActionButton',
       desc: '',
       args: [],
     );
