@@ -25,8 +25,8 @@ class _AppYoutubePlayerState extends State<AppYoutubePlayer> {
 
   @override
   void initState() {
-    controller.onInit =
-        () => controller.cueVideoById(videoId: widget.initialVideoId);
+    controller.init();
+    controller.cueVideoById(videoId: widget.initialVideoId);
     super.initState();
   }
 
